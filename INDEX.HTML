@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TudoFala - Comunicação Inovadora</title>
+  <link rel="stylesheet" href="assents/css/inicial.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="download-removebg-preview.png">
+
+</head>
+<body>
+
+<header>
+  
+  <div class="logo" id="logo">TudoFala</div>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#contato">Contato</a>
+    <button id="btnCriarConta">Criar Conta</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="inicio" class="hero">
+    <h1>Dê voz às suas ideias e transforme cada palavra em impacto!</h1>
+    <p>Com nossas aulas e suporte em comunicação, ajudamos você a falar com confiança, clareza e influência.<br><strong>Comunicação Sem Fronteiras</strong> — Levando suas ideias ao lugar certo, na hora certa.</p>
+  <br>
+  <button id="BT-SB" onclick="window.location.href='plano.html'">Saiba Mais</button>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Na TudoFala, ajudamos pessoas e empresas a aprimorarem sua comunicação de forma eficaz e assertiva. Por meio de palestras, workshops e consultorias especializadas, capacitamos indivíduos a se expressarem com clareza,
+    confiança e impacto. Nosso público-alvo inclui palestrantes, profissionais e organizações que desejam fortalecer suas habilidades de comunicação. Além de técnicas comunicativas, oferecemos um acompanhamento personalizado 
+    e suporte psicológico, garantindo um desenvolvimento completo e alinhado às necessidades de cada cliente.</p>
+  </section>
+
+  <div class="fundo-retangular"><section id="identidade">
+    <h2>Identidade</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Missão</h3>
+        <p>Promover o desenvolvimento da comunicação e oratória para pessoas com dificuldade em se expressar ou falar em público.</p>
+      </div>
+      <div class="card">
+        <h3>Visão</h3>
+        <p>Ser a maior empresa do ramo da comunicação e oratória, com reconhecimento mundial.</p>
+      </div>
+      <div class="card">
+        <h3>Valores</h3>
+        <p>Compromisso, Cuidado, Excelência, Empatia, Personalização.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Oratória</h3>
+        <p>Aprimoramento das habilidades de falar em público com técnicas práticas e personalizadas.</p>
+      </div>
+      <div class="card">
+        <h3>Comunicação Assertiva</h3>
+        <p>Desenvolvimento da capacidade de se expressar com clareza, empatia e confiança.</p>
+      </div>
+      <div class="card">
+        <h3>Acompanhamento com Inteligência Artificial</h3>
+        <p>Ferramentas digitais para análise e melhoria contínua da comunicação dos nossos clientes.</p>
+      </div>
+      <div class="card">
+        <h3>Suporte Psicológico</h3>
+        <p>Atendimento especializado para ajudar a superar bloqueios e aumentar a segurança na comunicação.</p>
+      </div>
+      <div class="card">
+        <h3>Atividades e Exercícios</h3>
+        <p>Práticas guiadas para desenvolver dicção, expressão corporal e escuta ativa.</p>
+      </div>
+    </div>
+  </section></div>
+
+  <section id="equipe">
+    <h2>Equipe</h2>
+    <div class="card-container">
+      <div class="team-member">
+        <img src="/assents/img/guilherme.jpeg" alt="Guilherme Dias" />
+        <h3>Guilherme Dias - Presidente</h3>
+        <p>Supervisiona operações e fornece direção estratégica.</p>
+      </div>
+      <div class="team-member">
+        <img src="/assents/img/henrique.jpeg" alt="Henrique Vilibor" />
+        <h3>Henrique Vilibor - Parceiro</h3>
+        <p>Colabora em projetos importantes e fornece insights estratégicos.</p>
+      </div>
+      <div class="team-member">
+        <img src="/assents/img/luiz.jpeg" alt="Luiz Felipe" />
+        <h3>Luiz Felipe - Parceiro</h3>
+        <p>Apoia a equipe com suas habilidades e expertise.</p>
+      </div>
+      <div class="team-member">
+        <img src="/assents/img/WhatsApp Image 2025-08-22 at 15.19.50.jpeg" alt="Giovana Junho"  class="rotate-img">
+        <h3>Giovana Junho - DEV</h3>
+        <p>Desenvolvedora da Tudo Fala.</p>
+      </div>
+      <div class="team-member">
+        <img src="/assents/img/WhatsApp Image 2025-08-22 at 15.19.55.jpeg" alt="Ana B" />
+        <h3>Ana Beatriz - DEV</h3>
+        <p>Desenvolvedora da Tudo Fala.</p>
+      </div>
+    </div>
+  </section>
+    <button id="prevDepoimento"></button>
+    <button id="nextDepoimento" ></button>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 TudoFala - Todos os direitos reservados</p>
+</footer>
+
+<!-- Modal Login -->
+<div class="modal-overlay" id="modalLogin">
+  <div class="modal">
+    <span class="close-btn" id="closeLogin">&times;</span>
+    <h2>Entrar</h2>
+    <form id="formLogin">
+      <label for="loginUser">Usuário:</label>
+      <input type="text" id="loginUser" name="loginUser" required />
+      <label for="loginPass">Senha:</label>
+      <input type="password" id="loginPass" name="loginPass" required />
+      <button type="submit" class="submit-btn">Acessar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Criar Conta -->
+<div class="modal-overlay" id="modalCriarConta">
+  <div class="modal">
+    <span class="close-btn" id="closeCriar">&times;</span>
+    <h2>Criar Conta</h2>
+    <form id="formCriarConta">
+      <label for="newUser">Nome de usuário:</label>
+<input type="text" id="newUser" name="newUser" required />
+
+<label for="newPass">Escolha uma senha:</label>
+<input type="password" id="newPass" name="newPass" required />
+
+<label for="newEmail">Email:</label>
+<input type="email" id="newEmail" name="newEmail" required />
+
+<label for="newPhone">Telefone:</label>
+<input type="tel" id="newPhone" name="newPhone" required />
+
+<label for="newPurpose">Finalidade da Plataforma:</label>
+<select id="newPurpose" name="newPurpose" required onchange="toggleOtherPurpose(this)">
+  <option value="pessoal">Pessoal</option>
+  <option value="profissional">Profissional</option>
+  <option value="educacional">Educacional</option>
+  <option value="outro">Outros</option>
+</select>
+<input type="text" id="otherPurpose" name="otherPurpose" placeholder="Especifique a finalidade" style="display:none;" />
+
+<script>
+function toggleOtherPurpose(select) {
+  const otherPurposeInput = document.getElementById('otherPurpose');
+  if (select.value === 'outro') {
+    otherPurposeInput.style.display = 'block';
+  } else {
+    otherPurposeInput.style.display = 'none';
+  }
+}
+</script>
+</select>
+
+<div style="text-align:center; margin-top:20px;">
+  <p style="font-size:0.95rem; color:#333;">
+    Já tem conta?
+    <span id="linkParaLogin" style="
+      color:#0055ff;
+      cursor:pointer;
+      font-weight:700;
+      text-decoration:underline;
+      transition:color 0.3s ease;
+    ">Entrar</span>
+  </p>
+</div>
+
+<button type="submit" class="submit-btn" style="
+  margin-top:15px;
+  width:100%;
+">Criar Conta</button>
+
+
+<script src="assents/js/inicial.js"></script>
+
+</body>
+</html>

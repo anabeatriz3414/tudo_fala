@@ -1,0 +1,51 @@
+.pagina-informacoes {
+  background-color: #f4f9fd;
+  padding: 40px 0;
+}
+
+.informacoes-conteudo {
+  max-width: 800px;
+  margin: auto;
+  color: #2c3e50;
+}
+
+.informacoes-conteudo h2 {
+  font-size: 28px;
+  color: #2980b9;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.bloco-info {
+  background-color: #ffffff;
+  border-left: 5px solid #2980b9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.bloco-info h3 {
+  margin-top: 0;
+  color: #2980b9;
+  font-size: 20px;
+}
+
+.bloco-info p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.bloco-info a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.bloco-info a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .informacoes-conteudo {
+    padding: 0 20px;
+  }
+}

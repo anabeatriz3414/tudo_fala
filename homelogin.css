@@ -1,0 +1,451 @@
+/* ======== SIDEBAR ======== */
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(180deg, #2980b9, #1f2a38);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 30px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* ======== MENU LATERAL ======== */
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  padding: 15px 20px;
+}
+
+#sidebar ul li a {
+  color: #297fb9;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+  background-color: #04498f6e;
+  color: #ffffff;
+  padding-left: 30px;
+}
+
+/* ======== FOTO E SAUDAÇÃO ======== */
+#user-photo {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#user-photo img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #84763e;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+#user-photo img:hover {
+  transform: scale(1.05);
+}
+
+#user-greeting {
+  display: block;
+  margin-top: 10px;
+  color: #ecf0f1;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ======== MENU SUSPENSO ======== */
+#menu {
+  display: none;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+  z-index: 1500;
+}
+
+#menu li a {
+  color: #333;
+  padding: 14px 22px;
+  display: block;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#menu li a:hover {
+  background-color: #f1c40f;
+  color: #1f2a38;
+}
+
+/* ======== CABEÇALHO ======== */
+#header {
+  margin-left: 250px;
+  height: 70px;
+  background: linear-gradient(90deg, #2980b9, #3b97d3);
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  width: calc(100% - 250px);
+  transition: all 0.3s ease;
+}
+
+#header h1 {
+  margin: 40px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ======== BOTÃO LOGOUT ======== */
+.lgt a {
+  color: #e74c3c !important;
+  font-weight: bold;
+}
+
+.lgt a:hover {
+  background-color: #ffe6e6 !important;
+  color: #c0392b !important;
+}
+
+/* ======== ANIMAÇÃO ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== TEMA ESCURO ======== */
+.dark-mode {
+  background-color: #121212;
+  color: #f1c40f;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode #sidebar {
+  background: linear-gradient(180deg, #0b1a27, #0d2538);
+}
+
+.dark-mode #menu {
+  background-color: #1c1c1c;
+}
+
+.dark-mode #menu li a {
+  color: #f1c40f;
+}
+
+.dark-mode #menu li a:hover {
+  background-color: #f1c40f;
+  color: #0d2538;
+}
+
+/* ======== BOTÃO DE TEMA ======== */
+label {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  margin-bottom: 10px;
+}
+
+#themeIcon {
+  width: 45px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#themeIcon:hover {
+  transform: rotate(20deg);
+}
+
+/* ======== BOTÕES PRINCIPAIS ======== */
+.botao-opinil {
+  background-color: #2980b9;
+  color: white;
+  text-decoration: none;
+  padding: 32px;
+  border-radius: 10px;
+  margin: 10px;
+  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.botao-opinil:hover {
+  background-color: #8c7000;
+  color: #1f2a38;
+}
+
+.opinil {
+  margin-left: 300px;
+  margin-top: 80px;
+}
+
+/* ======== SEÇÃO DE BOTÕES ======== */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  gap: 20px;
+  max-width: 980px;
+  margin: 40px auto;
+  margin-left: 375px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* tira o sublinhado */
+  color: black; /* cor do texto */
+  background-color: white;
+  border: 2px solid #2980b9; /* azul */
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 35px;
+  height: 35px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  background-color: #f4f4f4; /* leve destaque no hover */
+}
+
+
+/* Carrossel - alinhado à direita (ajuste margin-left se quiser deslocar mais) */
+.carousel {
+  position: relative;
+  max-width: 975px;        /* largura do carrossel */
+  height: 350px;
+  margin: 40px 0 80px 380px; /* ───> aqui: 350px desloca para a direita */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  background: #fff;
+}
+
+/* slides em linha, largura dinâmica */
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease-in-out;
+}
+
+/* cada imagem ocupa 100% do carrossel */
+.slides img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* botões */
+.carousel .prev,
+.carousel .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(241,196,15,0.95); /* dourado */
+  color: #111;
+  border: none;
+  font-size: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform .15s ease;
+  z-index: 5;
+}
+.carousel .prev:hover,
+.carousel .next:hover { transform: translateY(-50%) scale(1.06); }
+.carousel .prev { left: 16px; }
+.carousel .next { right: 16px; }
+
+/* responsividade: no mobile, carrossel ocupa largura total e sem margin-left */
+@media (max-width: 900px) {
+  .carousel {
+    margin-left: 0;
+    max-width: 100%;
+    height: 220px;
+    border-radius: 10px;
+  }
+  .carousel .prev, .carousel .next { font-size: 20px; width: 36px; height: 36px; }
+}
+
+
+.exercicios-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 40px;
+  margin-left: 370px;
+  background-color: #121212;
+  color: white;
+}
+
+.exercicios-container h2 {
+  color: #f1c40f;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.exercicio-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  background: #fff;
+  color: #333;
+  border: 3px solid #2980b9;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exercicio-card:hover {
+  transform: scale(1.02);
+}
+
+.exercicio-card.bloqueado {
+  opacity: 0.6;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+.exercicio-card img.cajado {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.exercicio-info h3 {
+  color: #2980b9;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.exercicio-info p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-ver-mais {
+  background-color: #f1c40f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-ver-mais:hover {
+  background-color: #d4ac0d;
+}
+
+.btn-bloqueado {
+  background-color: #999;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: bold;
+  cursor: not-allowed;
+}
+
+
+
+
+/* ======== MOBILE ======== */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    background: #2980b9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0 15px;
+    text-align: center;
+  }
+
+  #user-photo img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #f1c40f;
+  }
+
+  #user-greeting {
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  #menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    border-radius: 0;
+    animation: fadeIn 0.3s ease;
+  }
+
+  #menu li a {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #menu li a:hover {
+    background-color: #2980b9;
+    color: #fff;
+  }
+
+  #header {
+    margin-left: 0;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .opinil {
+    margin-left: 0;
+    text-align: center;
+  }
+}

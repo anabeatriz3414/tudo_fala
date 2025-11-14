@@ -1,0 +1,440 @@
+/* Fonte principal */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9fd;
+    color: #333;
+}
+
+/* Container padrão */
+.container {
+    width: 90%;
+    max-width: 1200px;
+  
+    
+
+}
+
+/* Header */
+header {
+    background-color: #2980b9;
+    color: white;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.logo img {
+    height: 50px;
+    margin-top: -29px;
+    margin-left: -150px;
+
+}
+
+.logo h1 {
+    
+    font-size: 28px;
+    margin-top: -23px;
+    margin-left: 70px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+   
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Página do usuário */
+.pagina-usuario h2 {
+    text-align: left 10;
+    
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.usuario-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.usuario-foto {
+    text-align: center;
+}
+
+.foto-usuario {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #2980b9;
+  object-fit: cover;
+  margin-bottom: 10px;
+  margin-left: 175px;
+}
+
+
+
+.btn {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1f6391;
+}
+
+.usuario-info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.form-grupo {
+    margin-bottom: 20px;
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.usuario-acoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Botão de logout com estilo diferente */
+.btn-logout {
+    background-color: #2980b9;
+}
+
+.btn-logout:hover {
+    background-color: #2c3e50;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.slogan {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2980b9;
+}
+
+.footer-icon {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+
+/* Estilo para diminuir  */
+
+.usuario-foto {
+  position: relative;
+  display: inline-block;
+}
+
+.lps {
+  position: absolute;
+  bottom: 220px;   /* ⬇️ posiciona no canto inferior */
+  right: 5px;    /* ➡️ posiciona no canto direito */
+  background-color: #b8d9ef;
+    border-color: #1f6391;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 10;
+}
+
+.lps img {
+  width: 28px;
+  height: 35px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.lps:hover {
+  transform: scale(1.2);
+  background-color: #1f6391;
+}
+
+.lps:active {
+  transform: scale(1.1);       /* efeito ao clicar */
+}
+/* Ajuste para telas menores */
+@media (max-width: 600px) {
+  .lps {
+    top: 220px;                /* ajusta a posição para telas menores */
+    left: 200px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #4CAF50; /* verde sucesso */
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  padding: 14px;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+
+/* Container do gráfico */
+.grafico-container {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-top: 40px;
+}
+
+/* Título do gráfico */
+.grafico-container h2 {
+  font-size: 24px;
+  color: #2980b9;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filtro-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filtro-item label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.filtro-item input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  min-width: 180px;
+}
+
+/* Dropdown de exercícios */
+.dropdown {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown-toggle {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+
+.dropdown-toggle::after {
+  content: " ▼";
+  float: right;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+
+.dropdown-menu label {
+  display: block;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.dropdown-menu label:hover {
+  background-color: #f0f0f0;
+}
+
+/* Botão de filtrar */
+.filtro-item button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.filtro-item button:hover {
+  background-color: #1f6391;
+}
+
+/* Canvas do gráfico */
+#graficoLinha {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Dropdown de exercícios */
+.dropdown {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown-toggle {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+
+.dropdown-toggle::after {
+  content: " ▼";
+  float: right;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu label {
+  display: block;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.dropdown-menu label:hover {
+  background-color: #f0f0f0;
+}
+

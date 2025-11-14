@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f9fd;
+  margin: 0;
+  padding: 20px;
+}
+
+.progresso-usuario {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+h1, h2, h3 {
+  color: #2980b9;
+  text-align: center;
+}
+
+.resumo-geral {
+  background-color: #eaf6ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.resumo-geral h2 {
+  margin-bottom: 10px;
+}
+
+.grafico label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+}
+
+.barra {
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+.preenchido {
+  height: 100%;
+  transition: width 1s ease;
+}
+
+.preenchido.diccao { background-color: #3498db; }
+.preenchido.gestos { background-color: #2ecc71; }
+.preenchido.respiracao { background-color: #9b59b6; }
+.preenchido.nervosismo { background-color: #e67e22; }
+
+.atividades ul,
+.sugestoes ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.atividades li::before {
+  content: "✅ ";
+}
+
+.sugestoes li::before {
+  content: "👉 ";
+}
+
+.atividades li,
+.sugestoes li {
+  margin-bottom: 8px;
+}

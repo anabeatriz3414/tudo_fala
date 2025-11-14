@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f9fd;
+  margin: 0;
+  padding: 20px;
+}
+
+.planos {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.planos h1 {
+  color: #2980b9;
+  margin-bottom: 30px;
+}
+
+.painel-planos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.plano {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.plano:hover {
+  transform: scale(1.05);
+}
+
+.plano .icone {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.plano h2 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.plano p {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.plano ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.plano ul li {
+  margin-bottom: 8px;
+}
+
+.plano button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.plano.free .icone { color: #3498db; }
+.plano.basic .icone { color: #2ecc71; }
+.plano.premium .icone { color: #9b59b6; }
+
+.mensagem {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #2c3e50;
+  font-weight: bold;
+}

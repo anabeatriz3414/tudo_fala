@@ -1,0 +1,234 @@
+/* Reset */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f5f7fa; /* cor da página inicial */
+  color: #111;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho fixo */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  box-shadow: 0 2px 8px #00ff2f;
+  z-index: 1000;
+}
+header h1 {
+  color: #0055ff;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+header p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Layout da semana e cards */
+.board {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  padding: 100px 40px 40px 40px;
+}
+@media (max-width:900px) {
+  .board {
+    grid-template-columns: 1fr;
+    padding: 100px 20px 20px 20px;
+  }
+}
+
+/* Navegação dos dias */
+.nav .day {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: .2s;
+  border: 1px solid transparent;
+  background: #fff;
+}
+.nav .day:hover {
+  background: #e0e7ff;
+}
+.nav .day.active {
+  background: #0055ff;
+  color: #fff;
+  border-color: transparent;
+}
+.nav .day .status {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef3fb;
+  color: #0055ff;
+}
+.nav .day.active .status {
+  background: rgba(255,255,255,.2);
+  color: #fff;
+}
+.nav h3 {
+  margin: 4px 8px 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #111;
+}
+
+/* Cards de atividades */
+.card, .activity, .summary {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgb(2, 255, 2);
+  margin-bottom: 20px;
+}
+.activity h2, .summary h3 {
+  color: #0055ff;
+  margin-bottom: 12px;
+}
+.pill {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #0055ff;
+  margin-right: 8px;
+}
+.goal {
+  font-size: 14px;
+  color: #111;
+  background: #f0f6ff;
+  border-left: 3px solid #0055ff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 10px 0 14px;
+}
+
+/* Botões */
+button {
+  appearance: none;
+  border: none;
+  background: #0055ff;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #0077ff;
+}
+button.secondary {
+  background: #e0e7ff;
+  color: #0055ff;
+}
+button.secondary:hover {
+  background: #cfe0ff;
+}
+button.ghost {
+  background: transparent;
+  color: #0055ff;
+  border: 1px solid #cfe0ff;
+}
+button.ghost:hover {
+  background: #f2f6fd;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Prompt */
+.prompt {
+  background: #f5f7fa;
+  border: 1px solid #d8e7ff;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px 0;
+}
+.prompt h4 {
+  margin-bottom: 8px;
+}
+
+/* Métricas */
+.meter {
+  height: 10px;
+  background: #e0e7ff;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0;
+  position: relative;
+}
+.meter > span {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  background: linear-gradient(90deg,#0055ff,#0077ff);
+  border-radius: 999px;
+  width: 0;
+}
+
+/* Estatísticas */
+.stat {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #d8e7ff;
+}
+.stat h5 {
+  font-size: 13px;
+  color: #111;
+  margin-bottom: 6px;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  font-size: 12px;
+  color: #0055ff;
+}
+
+/* Semana */
+.week {
+  display: none;
+}
+.week.show {
+  display: block;
+}
+.summary ul li {
+  margin: 6px 0;
+}
+.summary ul li.ok { color: #10b981; }
+.summary ul li.warn { color: #f59e0b; }
+.summary ul li.bad { color: #ef4444; }
+
+/* Áudio */
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Timer */
+#timer {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: #0055ff;
+}
