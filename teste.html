@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toggle com Imagem</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      text-align: center;
+      padding: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    #toggleTheme {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 80px;
+      transition: transform 0.3s ease;
+    }
+
+    .icon:hover {
+      transform: scale(1.1);
+    }
+
+    .dark-mode {
+      background: #121212;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="toggleTheme" onchange="toggleTheme()" />
+  <label for="toggleTheme">
+    <img src="/assents/img/3.png" alt="Sol" class="icon" id="themeIcon" />
+  </label>
+
+  <h1>Olá, Giovana!</h1>
+  <p>Clique no sol para alternar o tema da página.</p>
+
+  <script>
+    let isDark = false;
+
+    function toggleTheme() {
+      isDark = !isDark;
+      document.body.classList.toggle('dark-mode');
+
+      const icon = document.getElementById('themeIcon');
+      icon.src = isDark ? '/assents/img/2.png' : '/assents/img/3.png';
+      icon.alt = isDark ? 'Lua' : 'Sol';
+    }
+  </script>
+</body>
+</html>

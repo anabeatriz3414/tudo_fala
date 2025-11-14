@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações</title>
+  <link rel="stylesheet" href="/assents/css/perfil.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/assents/img/download-removebg-preview.png">
+
+</head>
+
+
+<body>
+  <div id="mensagem-sucesso" class="toast">Informações salvas com sucesso!</div>
+  <header>
+    <div class="container">
+      <a href="/pages/homeLogin/homelogin.html" class="logo">
+        <img src="/assents/img/download-removebg-preview.png" alt="Logo Tudo Fala">
+        <h1>Tudo Fala- Configurações do Perfil</h1>
+
+
+        <!-- Botão de tema -->
+        <input type="checkbox" id="toggleTheme" onchange="toggleTheme()" hidden />
+        <label for="toggleTheme">
+          <img src="/assents/img/3.png" alt="Sol" id="themeIcon" />
+        </label>
+
+        <!-- Estilos do tema -->
+        <style>
+          /* === BOTÃO DE TEMA (DARK MODE) === */
+          .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 15px;
+          }
+
+          .theme-toggle input {
+            display: none;
+          }
+
+          .theme-toggle label {
+            cursor: pointer;
+          }
+
+          #themeIcon {
+            width: 75px;
+            height: 75px;
+            margin-left: 1340px;
+            margin-top: -75px;
+            transition: transform 0.3s ease;
+          }
+
+          #themeIcon:hover {
+            transform: rotate(15deg);
+          }
+
+          /* MODO ESCURO */
+          body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+            transition: background 0.3s ease, color 0.3s ease;
+          }
+
+          header.dark-mode {
+            background-color: #1e1e1e;
+            color: #fff;
+          }
+
+          .btn.dark-mode {
+            background-color: #333;
+          }
+        </style>
+
+        <!-- Script do tema -->
+        <script>
+          let isDark = false;
+          function toggleTheme() {
+            isDark = !isDark;
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+
+            const icon = document.getElementById('themeIcon');
+            icon.src = isDark ? '/assents/img/2.png' : '/assents/img/3.png';
+            icon.alt = isDark ? 'Lua' : 'Sol';
+          }
+        </script>
+        <br>
+      </a>
+    </div>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <main>
+
+    <section class="pagina-usuario">
+      <div class="container">
+        <div class="usuario-conteudo">
+          <div class="usuario-foto">
+            <img src="/assents/img/UserA.png" id="profile-pic" class="foto-usuario" alt="Foto do Usuário">
+            <input type="file" id="input-foto" accept="image/*" style="display: none;">
+            <button id="lpps" class="lps"><img src="/assents/img/lapis.png" alt="lapis"></button>
+          </div>
+
+
+
+          <div class="usuario-info">
+            <form id="form-usuario">
+              <div class="form-grupo">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="loginUser" name="nome" readonly>
+              </div>
+              <div class="form-grupo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="newEmail" name="email" readonly>
+              </div>
+              <div class="form-grupo">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="newPhone" name="telefone" placeholder="Seu telefone">
+              </div>
+
+              <button type="submit" class="btn">Salvar Informações</button>
+            </form>
+            <div class="usuario-acoes">
+              <a href="/pages/homeLogin/homelogin.html" class="btn">Voltar</a>
+              <button id="btn-logout" class="btn btn-logout">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grafico-container">
+      <h2>Seu progresso em comunicação</h2>
+
+      <div class="filtros">
+        <div class="filtro-item">
+          <label for="dataInicio">De:</label>
+          <input type="date" id="dataInicio">
+        </div>
+
+        <div class="filtro-item">
+          <label for="dataFim">Até:</label>
+          <input type="date" id="dataFim">
+        </div>
+
+        <div class="filtro-item">
+          <label for="filtroTipo">Exercício:</label>
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" onclick="toggleDropdown()">Selecionar
+              exercícios</button>
+            <div class="dropdown-menu" id="dropdownExercicios">
+              <!-- opções serão inseridas via JS -->
+            </div>
+
+          </div>
+        </div>
+
+        <div class="filtro-item">
+          <button type="button" onclick="gerarGrafico()">Filtrar</button>
+        </div>
+      </div>
+
+      <canvas id="graficoLinha" width="600" height="300"></canvas>
+    </section>
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social">
+        <a href="https://www.instagram.com/tudo.fala" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <img src="/assents/img/instagram - Copia.jpeg" alt="Instagram" class="footer-icon">
+        </a>
+        <a href="mailto:Tudo.Fala@gmail.com">
+          <i class="fas fa-envelope"></i>
+          <img src="/assents/img/gmail.jpeg" alt="Email" class="footer-icon">
+        </a>
+      </div>
+
+
+
+      <p class="copyright">&copy; 2025 Tudo Fala. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <!--ajustar para outras telas-->
+
+  <script>document.addEventListener("DOMContentLoaded", function () {
+      const canvas = document.getElementById("graficoLinha");
+      if (!canvas) {
+        console.error("Canvas com ID 'graficoLinha' não encontrado!");
+        return;
+      }
+
+      const ctx = canvas.getContext("2d");
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["2025-10-01", "2025-10-02", "2025-10-03"],
+          datasets: [{
+            label: "Exemplo de Comunicação",
+            data: [3, 2, 5],
+            borderColor: "#0077c2",
+            backgroundColor: "rgba(0, 119, 194, 0.2)",
+            fill: true
+          }]
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/assents/js/perfil.js"></script>
+
+
+</body>
+
+</html>

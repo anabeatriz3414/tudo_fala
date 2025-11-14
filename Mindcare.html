@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Especialistas em Oratória</title>
+    <style>
+        :root {
+            --azul-escuro: #003366;
+            --azul-medio: #004488;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --cinza-borda: #dee2e6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f8fa;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--branco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 51, 102, 0.08);
+        }
+        header {
+            background: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 32px 20px;
+        }
+        header h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        header p {
+            font-size: 1.05em;
+            opacity: 0.92;
+        }
+        .search-section {
+            padding: 24px;
+            background: var(--cinza-claro);
+            text-align: center;
+            border-bottom: 1px solid var(--cinza-borda);
+        }
+        .search-input {
+            width: 100%;
+            max-width: 460px;
+            padding: 11px 14px;
+            border: 1px solid #ccd6e0;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-right: 8px;
+            transition: border 0.2s;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--azul-medio);
+            box-shadow: 0 0 0 3px rgba(0, 68, 136, 0.1);
+        }
+        .search-btn {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.98em;
+            transition: background 0.2s;
+        }
+        .search-btn:hover {
+            background: var(--azul-escuro);
+        }
+        .lista {
+            padding: 0;
+        }
+        .especialista {
+            display: flex;
+            flex-direction: row;
+            padding: 24px;
+            border-bottom: 1px solid var(--cinza-borda);
+            transition: background 0.2s;
+        }
+        .especialista:hover {
+            background: #f9fbff;
+        }
+        .foto {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #e6f0ff;
+            flex-shrink: 0;
+        }
+        .conteudo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .nome {
+            font-size: 1.35em;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            margin-bottom: 6px;
+        }
+        .especialidade {
+            font-size: 1.02em;
+            color: var(--azul-medio);
+            margin-bottom: 6px;
+        }
+        .local {
+            font-size: 0.94em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .descricao {
+            font-size: 0.96em;
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.55;
+        }
+        .btn-contato {
+            align-self: flex-start;
+            background: var(--azul-medio);
+            color: white;
+            text-decoration: none;
+            padding: 7px 16px;
+            border-radius: 5px;
+            font-size: 0.92em;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn-contato:hover {
+            background: var(--azul-escuro);
+        }
+        .vazio {
+            text-align: center;
+            padding: 50px 20px;
+            color: #777;
+            font-style: italic;
+            font-size: 1.05em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .especialista {
+                flex-direction: column;
+                text-align: center;
+            }
+            .foto {
+                margin: 0 auto 16px;
+            }
+            .search-input, .search-btn {
+                display: block;
+                width: 100%;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Especialistas em Oratória</h1>
+            <p>Encontre profissionais qualificados para melhorar sua fala em público</p>
+        </header>
+
+        <section class="search-section">
+            <input type="text" class="search-input" id="searchInput" placeholder="Buscar por nome, cidade ou especialidade..." />
+            <button class="search-btn" onclick="buscar()">Buscar</button>
+        </section>
+
+        <section class="lista" id="listaEspecialistas">
+            <!-- Preenchido via JS -->
+        </section>
+
+        <footer>
+            Dados atualizados em novembro de 2025 • Consulte os sites oficiais para agendamento
+        </footer>
+    </div>
+
+    <script>
+        const especialistas = [
+            {
+                nome: "Reinaldo Polito",
+                especialidade: "Oratória para Líderes e Executivos",
+                local: "São Paulo, SP",
+                descricao: "Mestre em Ciências da Comunicação. Autor de 32 livros. Considerado o maior especialista em oratória do Brasil.",
+                foto: "https://www.reinaldopolito.com.br/wp-content/uploads/2023/08/reinaldo-polito-foto-perfil.jpg",
+                site: "https://www.reinaldopolito.com.br/"
+            },
+            {
+                nome: "Vera Lorenzo",
+                especialidade: "Coaching de Comunicação e Liderança",
+                local: "Online / Brasil",
+                descricao: "CEO da Fala Company. Fluente em 5 idiomas. Mais de 30 anos de experiência em oratória e desenvolvimento de líderes.",
+                foto: "https://falacompany.com/wp-content/uploads/2023/05/vera-lorenzo-perfil.jpg",
+                site: "https://falacompany.com/"
+            },
+            {
+                nome: "Rodrigo Moreira",
+                especialidade: "Fonoaudiologia e Oratória",
+                local: "Online / Brasil",
+                descricao: "Fonoaudiólogo, fundador do IBRO. 29 anos de experiência. Especialista em superar medo de falar em público.",
+                foto: "https://falarmelhor.com.br/wp-content/uploads/2024/01/rodrigo-moreira-perfil.jpg",
+                site: "https://falarmelhor.com.br/"
+            },
+            {
+                nome: "Fábio Marques",
+                especialidade: "Oratória e Master Coaching",
+                local: "Online",
+                descricao: "Mais de 16.000 horas em palco. Palestrante internacional. Criador do curso 'Fale Sem Medo'.",
+                foto: "https://www.fabiomarques.com.br/wp-content/uploads/2023/10/fabio-marques-perfil.jpg",
+                site: "https://www.fabiomarques.com.br/"
+            },
+            {
+                nome: "Rachel Polito",
+                especialidade: "Comunicação Persuasiva",
+                local: "Curitiba, PR",
+                descricao: "Mestre em Comunicação. Autora de 11 livros. Especialista em oratória e influência positiva.",
+                foto: "https://transformatória.com.br/wp-content/uploads/2024/02/rachel-polito-perfil.jpg",
+                site: "https://transformatória.com.br/"
+            },
+            {
+                nome: "Clube da Fala",
+                especialidade: "Oratória e Autoconhecimento",
+                local: "Online / Brasil",
+                descricao: "Metodologia baseada em DISC e PNL. Foco em confiança, desenvoltura e eliminação do medo de falar.",
+                foto: "https://clubedafala.com.br/wp-content/uploads/2023/11/clube-da-fala-logo-perfil.jpg",
+                site: "https://clubedafala.com.br/"
+            },
+            {
+                nome: "Mais Fono Clínica",
+                especialidade: "Mentoria em Voz e Oratória",
+                local: "Online",
+                descricao: "Fonoaudiólogas formadas pela UNICAMP e CEV. Especializadas em voz profissional e gagueira.",
+                foto: "https://maisfono.com.br/wp-content/uploads/2024/01/mais-fono-equipe.jpg",
+                site: "https://maisfono.com.br/mentoria-em-oratoria/"
+            },
+            {
+                nome: "Acidemia de Expressão",
+                especialidade: "Cursos Master e Xtreme",
+                local: "Online / Brasil",
+                descricao: "Cursos práticos com videoaulas exclusivas. Foco em oratória presencial e digital.",
+                foto: "https://academiadeexpressao.com.br/wp-content/uploads/2023/12/academia-expressao-perfil.jpg",
+                site: "https://academiadeexpressao.com.br/"
+            }
+        ];
+
+        function renderizar(lista) {
+            const container = document.getElementById('listaEspecialistas');
+            if (lista.length === 0) {
+                container.innerHTML = '<div class="vazio">Nenhum especialista encontrado. Tente ajustar a busca.</div>';
+                return;
+            }
+            container.innerHTML = lista.map(p => `
+                <div class="especialista">
+                    <img src="${p.foto}" alt="${p.nome}" class="foto" onerror="this.src='https://via.placeholder.com/100/003366/ffffff?text=${encodeURIComponent(p.nome.charAt(0))}'">
+                    <div class="conteudo">
+                        <div>
+                            <div class="nome">${p.nome}</div>
+                            <div class="especialidade">${p.especialidade}</div>
+                            <div class="local">${p.local}</div>
+                            <div class="descricao">${p.descricao}</div>
+                        </div>
+                        <a href="${p.site}" target="_blank" rel="noopener" class="btn-contato">Acessar Site</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function buscar() {
+            const termo = document.getElementById('searchInput').value.toLowerCase().trim();
+            const filtrados = termo ? especialistas.filter(p => 
+                p.nome.toLowerCase().includes(termo) ||
+                p.especialidade.toLowerCase().includes(termo) ||
+                p.local.toLowerCase().includes(termo) ||
+                p.descricao.toLowerCase().includes(termo)
+            ) : especialistas;
+            renderizar(filtrados);
+        }
+
+        // Inicializa
+        renderizar(especialistas);
+
+        // Busca ao digitar (com debounce)
+        let timeout;
+        document.getElementById('searchInput').addEventListener('input', () => {
+            clearTimeout(timeout);
+            timeout = setTimeout(buscar, 300);
+        });
+    </script>
+</body>
+</html>

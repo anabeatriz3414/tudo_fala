@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="../../assents/css/homelogin.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assents/img/download-removebg-preview.png">
+</head>
+
+<body>
+
+    <!-- Sidebar com Avatar e Menu -->
+    <div id="sidebar">
+        <div id="backdrop"></div>
+        <div id="user-photo">
+            <img id="avatar-principal" src="../../assents/img/UserA.png" alt="Foto do Usuário" onclick="toggleMenu()">
+            <span id="user-greeting" aria-live="polite">Olá, Usuário</span>
+            <ul id="menu">
+                <li><a href="perfil.html">Configurações</a></li>
+                <li><a href="informacoes.html">Informações</a></li>
+                <li><a href="progresso.html">Progresso</a></li>
+                <li><a href="plano.html">Plano</a></li>
+                <li class="lgt"><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <div id="header">
+        <h1>Bem-vindo à sua Página Inicial</h1>
+    </div>
+
+    <!-- Botão de Tema (Sol/Lua) -->
+    <input type="checkbox" id="toggleTheme" onchange="toggleTheme()" hidden />
+    <label for="toggleTheme">
+        <img src="/assents/img/3.png" alt="Alternar tema (Sol)" id="themeIcon" style="width: 55px; cursor: pointer;" />
+    </label>
+
+    <!-- Cards Principais (Corrigidos) -->
+    <div class="container">
+        <a href="Frequencia.html" class="card">
+            <img src="/assents/img/icon-fire.jpeg" alt="Ícone de frequência">
+            <span>Frequência</span>
+        </a>
+
+        <a href="Desafio.html" class="card">
+            <img src="/assents/img/icon-alvo.png" alt="Ícone de desafios">
+            <span>Desafios</span>
+        </a>
+
+        <a href="Treinamento.html" class="card">
+            <img src="/assents/img/icon-treinamento.jpg" alt="Ícone de treinamento">
+            <span>Treinamento</span>
+        </a>
+
+        <a href="Mindcare.html" class="card">
+            <img src="/assents/img/icon-medic.jpeg" alt="Ícone de MindCare">
+            <span>MindCare</span>
+        </a>
+    </div>
+
+    <!-- Carrossel de Imagens -->
+    <div class="carousel">
+        <div class="slides">
+            <img src="/assents/img/Banner beba água lettering ilustrado divertido azul.png" alt="Banner: Beba água">
+            <img src="/assents/img/Banner promocional de divulgação de cupom na cor amarela.png" alt="Banner: Cupom promocional">
+            <img src="/assents/img/Banner beba água lettering ilustrado divertido azul.png" alt="Banner: Beba água">
+            <img src="/assents/img/Banner promocional de divulgação de cupom na cor amarela.png" alt="Banner: Cupom promocional">
+            <img src="/assents/img/Banner beba água lettering ilustrado divertido azul.png" alt="Banner: Beba água">
+            <img src="/assents/img/Banner promocional de divulgação de cupom na cor amarela.png" alt="Banner: Cupom promocional">
+        </div>
+        <button class="prev" aria-label="Imagem anterior">Left Arrow</button>
+        <button class="next" aria-label="Próxima imagem">Right Arrow</button>
+    </div>
+
+    <!-- Seção de Exercícios Diários -->
+    <section class="exercicios-container">
+        <h2>Exercícios Diários</h2>
+
+        <!-- Exercício 1 - Desbloqueado -->
+        <div class="exercicio-card ativo" id="ex1">
+            <img src="/assents/img/icon-aberto.png" class="cajado" alt="Cajado aberto">
+            <div class="exercicio-info">
+                <h3>Foco e Concentração</h3>
+                <p>Atividade inicial para preparar sua mente para o dia.</p>
+                <button class="btn-ver-mais" data-id="1">Ver mais</button>
+            </div>
+        </div>
+
+        <!-- Exercício 2 - Bloqueado -->
+        <div class="exercicio-card bloqueado" id="ex2">
+            <img src="/assents/img/icon-fechado.jpeg" class="cajado" alt="Cajado fechado">
+            <div class="exercicio-info">
+                <h3>Respiração Controlada</h3>
+                <p>Complete o exercício anterior para desbloquear este.</p>
+                <button class="btn-bloqueado" disabled>Bloqueado</button>
+            </div>
+        </div>
+
+        <!-- Exercício 3 - Bloqueado -->
+        <div class="exercicio-card bloqueado" id="ex3">
+            <img src="/assents/img/icon-fechado.jpeg" class="cajado" alt="Cajado fechado">
+            <div class="exercicio-info">
+                <h3>Alongamento e Equilíbrio</h3>
+                <p>Complete o exercício anterior para desbloquear este.</p>
+                <button class="btn-bloqueado" disabled>Bloqueado</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script JavaScript -->
+    <script src="../../assents/js/homelogin.js"></script>
+</body>
+
+</html>

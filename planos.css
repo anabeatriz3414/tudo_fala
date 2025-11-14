@@ -1,84 +1,121 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f9fd;
-  margin: 0;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-.planos {
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
+.header-user {
+    background: #2980b9;
+    padding: 10px 20px;
 }
 
-.planos h1 {
-  color: #2980b9;
-  margin-bottom: 30px;
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.painel-planos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.plan-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
-.plano {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  width: 280px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
+.user-name {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.plano:hover {
-  transform: scale(1.05);
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 28px;
+    color: #1a1a1a;
 }
 
-.plano .icone {
-  font-size: 36px;
-  margin-bottom: 10px;
+.planos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    flex-wrap: wrap;
 }
 
-.plano h2 {
-  color: #2980b9;
-  margin-bottom: 10px;
+.plano-card {
+    background: white;
+    padding: 25px;
+    width: 290px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
 }
 
-.plano p {
-  font-size: 15px;
-  color: #333;
-  margin-bottom: 15px;
+.plano-card h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.plano ul {
-  list-style: none;
-  padding-left: 0;
-  text-align: left;
-  margin-bottom: 15px;
+.free h2 { color: #2980b9; }
+.basic h2 { color: #b8860b; }
+.premium h2 { color: #ffbf00; }
+
+.preco {
+    font-size: 22px;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
-.plano ul li {
-  margin-bottom: 8px;
+.features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 20px;
 }
 
-.plano button {
-  background-color: #2980b9;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
+.features li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding-left: 25px;
+    position: relative;
 }
 
-.plano.free .icone { color: #3498db; }
-.plano.basic .icone { color: #2ecc71; }
-.plano.premium .icone { color: #9b59b6; }
+.features li.ok::before {
+    content: "✔";
+    color: #28a745;
+    position: absolute;
+    left: 0;
+}
 
-.mensagem {
-  margin-top: 30px;
-  font-size: 16px;
-  color: #2c3e50;
-  font-weight: bold;
+.features li.lock {
+    opacity: 0.5;
+}
+
+.features li.lock::before {
+    content: "🔒";
+    position: absolute;
+    left: 0;
+}
+
+.btn-assinar {
+    display: block;
+    margin-top: 25px;
+    padding: 12px;
+    background: #b8860b;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.btn-assinar:hover {
+    background: #d4a32a;
+}
+
+.desativado {
+    background: gray !important;
+    pointer-events: none;
 }

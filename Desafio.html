@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Desafios Interativos de Oratória</title>
+    <style>
+        :root {
+            --azul-escuro: #003366;    /* Azul marinho profundo */
+            --azul-medio: #004488;
+            --branco: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --sucesso: #28a745;
+            --erro: #dc3545;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e6f0ff 0%, #f8f9fa 100%);
+            color: var(--azul-escuro);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--branco);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.15);
+            border: 1px solid #cce0ff;
+        }
+        header {
+            background: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 35px 20px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.3em;
+            font-weight: 700;
+        }
+        header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        .desafio {
+            background: var(--cinza-claro);
+            margin: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 6px solid var(--azul-medio);
+            transition: all 0.3s ease;
+        }
+        .desafio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.1);
+        }
+        .desafio h2 {
+            margin: 0 0 15px;
+            color: var(--azul-escuro);
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .desafio h2::before {
+            content: "🎯";
+        }
+        .instrucao {
+            background: var(--branco);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px dashed var(--azul-medio);
+            font-size: 0.95em;
+        }
+        .interativo {
+            margin-top: 15px;
+        }
+        button {
+            background: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1em;
+        }
+        button:hover {
+            background: var(--azul-escuro);
+            transform: scale(1.03);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .resultado {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+        }
+        .sucesso { background: #d4edda; color: var(--sucesso); border: 1px solid #c3e6cb; }
+        .erro { background: #f8d7da; color: var(--erro); border: 1px solid #f5c6cb; }
+        .cronometro {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--azul-escuro);
+            text-align: center;
+            margin: 15px 0;
+        }
+        .input-area {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cce0ff;
+            border-radius: 8px;
+            font-size: 1em;
+            margin: 10px 0;
+            font-family: inherit;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--azul-escuro);
+            color: var(--branco);
+            font-size: 0.95em;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8em; }
+            .desafio { margin: 15px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>5 DESAFIOS INTERATIVOS</h1>
+            <p>Oratória & Dicção – Treine direto no site!</p>
+        </header>
+
+        <!-- DESAFIO 1: Trava-línguas com contador de erros -->
+        <div class="desafio">
+            <h2>1. Trava-línguas Automático</h2>
+            <p><strong>Frase:</strong> "O rato roeu a roupa do rei de Roma."</p>
+            <div class="instrucao">Digite a frase 3 vezes o mais rápido que conseguir. O site conta erros!</div>
+            <div class="interativo">
+                <input type="text" class="input-area" id="travaInput" placeholder="Digite aqui..." />
+                <button onclick="verificarTrava()">Enviar Tentativa</button>
+                <div id="travaResultado" class="resultado"></div>
+                <p><strong>Tentativas:</strong> <span id="tentativas">0</span> | <strong>Erros totais:</strong> <span id="erros">0</span></p>
+            </div>
+        </div>
+
+        <!-- DESAFIO 2: Cronômetro de 1 minuto sem pausas -->
+        <div class="desafio">
+            <h2>2. 1 Minuto Sem Parar</h2>
+            <p>Fale sobre <strong>um objeto à sua frente</strong> por exatamente 1 minuto.</p>
+            <div class="instrucao">Clique em INICIAR e comece a falar em voz alta. O cronômetro para automaticamente se você silenciar (simulação).</div>
+            <div class="interativo">
+                <div class="cronometro" id="cronometro1">01:00</div>
+                <button onclick="iniciarCronometro(60, 'cronometro1', 'resultadoCron1')">INICIAR</button>
+                <div id="resultadoCron1" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- DESAFIO 3: Detector de Muletas Verbais -->
+        <div class="desafio">
+            <h2>3. Caça às Muletas</h2>
+            <p>Fale por 30 segundos. O site detecta "ééé", "tipo", "né", "ahm".</p>
+            <div class="instrucao">Grave ou simule falando. Cole o texto transcrito abaixo.</div>
+            <div class="interativo">
+                <textarea class="input-area" id="muletasInput" rows="3" placeholder="Cole aqui o que você falou (ou transcreva)..."></textarea>
+                <button onclick="contarMuletas()">ANALISAR</button>
+                <div id="muletasResultado" class="resultado"></div>
+            </div>
+        </div>
+
+        <!-- DESAFIO 4: Pausas Dramáticas -->
+        <div class="desafio">
+            <h2>4. Pausas de 2 Segundos</h2>
+            <p>Leia o texto abaixo com pausas de <strong>exatos 2 segundos</strong> após cada ponto azul.</p>
+            <div class="instrucao">Clique em "Praticar" e siga o ritmo guiado.</div>
+            <p style="background:#e6f0ff; padding:12px; border-radius:8px; margin:10px 0;">
+                Acordar cedo <span style="color:var(--azul-medio)">🔵</span> mudou minha vida. <span style="color:var(--azul-medio)">🔵</span> 
+                Ganhei foco <span style="color:var(--azul-medio)">🔵</span> e energia. <span style="color:var(--azul-medio)">🔵</span> 
+                Recomendo a todos.
+            </p>
+            <button onclick="guiarPausas()">PRATICAR COM GUIA</button>
+            <div id="pausaGuia" style="margin-top:15px; font-size:1.3em; font-weight:bold; color:var(--azul-escuro); display:none;"></div>
+        </div>
+
+        <!-- DESAFIO 5: Emoções em Sequência -->
+        <div class="desafio">
+            <h2>5. 3 Emoções em 90 Segundos</h2>
+            <p>Fale sobre "minha maior conquista" mudando de emoção a cada 30s:</p>
+            <ul style="margin:10px 0; padding-left:20px;">
+                <li>0-30s: <strong>Alegria</strong> </li>
+                <li>30-60s: <strong>Gratidão</strong> </li>
+                <li>60-90s: <strong>Orgulho</strong> </li>
+            </ul>
+            <button onclick="iniciarEmocoes()">INICIAR TREINO GUIADO</button>
+            <div class="cronometro" id="emoCron" style="display:none; margin:15px 0;">90</div>
+            <div id="emoStatus" style="font-weight:bold; color:var(--azul-medio); display:none;"></div>
+        </div>
+
+        <footer>
+            Desafios 100% interativos • Feitos para você evoluir todos os dias 💙
+        </footer>
+    </div>
+
+    <script>
+        // DESAFIO 1: Trava-línguas
+        const fraseCorreta = "o rato roeu a roupa do rei de roma";
+        let tentativas = 0, errosTotais = 0;
+
+        function verificarTrava() {
+            const input = document.getElementById('travaInput');
+            const texto = input.value.trim().toLowerCase().replace(/[.,?!]/g, '');
+            const resultado = document.getElementById('travaResultado');
+            
+            tentativas++;
+            document.getElementById('tentativas').textContent = tentativas;
+
+            if (texto === fraseCorreta) {
+                resultado.className = 'resultado sucesso';
+                resultado.textContent = 'PERFEITO! Zero erros! 🎉';
+                resultado.style.display = 'block';
+            } else {
+                const erros = calcularErros(texto, fraseCorreta);
+                errosTotais += erros;
+                document.getElementById('erros').textContent = errosTotais;
+                resultado.className = 'resultado erro';
+                resultado.innerHTML = `Erros: <strong>${erros}</strong>. Tente de novo!`;
+                resultado.style.display = 'block';
+            }
+            input.value = '';
+            setTimeout(() => resultado.style.display = 'none', 4000);
+        }
+
+        function calcularErros(a, b) {
+            let erros = 0;
+            const max = Math.max(a.length, b.length);
+            for (let i = 0; i < max; i++) {
+                if (a[i] !== b[i]) erros++;
+            }
+            return erros;
+        }
+
+        // DESAFIO 2 e 5: Cronômetros
+        let intervalo;
+        function iniciarCronometro(tempo, elementoId, resultadoId) {
+            let seg = tempo;
+            const elem = document.getElementById(elementoId);
+            const res = document.getElementById(resultadoId);
+            clearInterval(intervalo);
+
+            intervalo = setInterval(() => {
+                seg--;
+                const min = String(Math.floor(seg / 60)).padStart(2, '0');
+                const s = String(seg % 60).padStart(2, '0');
+                elem.textContent = `${min}:${s}`;
+
+                if (seg <= 0) {
+                    clearInterval(intervalo);
+                    res.className = 'resultado sucesso';
+                    res.textContent = 'PARABÉNS! Você completou o desafio! 🎯';
+                    res.style.display = 'block';
+                }
+            }, 1000);
+        }
+
+        // DESAFIO 3: Muletas
+        function contarMuletas() {
+            const texto = document.getElementById('muletasInput').value.toLowerCase();
+            const muletas = ['ééé', 'ahm', 'tipo', 'né', 'então tipo', 'sabe'];
+            let total = 0;
+            let detalhes = [];
+
+            muletas.forEach(m => {
+                const regex = new RegExp(m, 'gi');
+                const ocorrencias = (texto.match(regex) || []).length;
+                if (ocorrencias > 0) {
+                    total += ocorrencias;
+                    detalhes.push(`"${m}": ${ocorrencias}x`);
+                }
+            });
+
+            const res = document.getElementById('muletasResultado');
+            if (total === 0) {
+                res.className = 'resultado sucesso';
+                res.textContent = 'NENHUMA MULETA! Excelente clareza! ✨';
+            } else {
+                res.className = 'resultado erro';
+                res.innerHTML = `<strong>${total}</strong> mulet${total > 1 ? 'as' : 'a'} encontrad${total > 1 ? 'as' : 'a'}:<br>${detalhes.join(', ')}`;
+            }
+            res.style.display = 'block';
+        }
+
+        // DESAFIO 4: Guia de pausas
+        function guiarPausas() {
+            const guia = document.getElementById('pausaGuia');
+            guia.style.display = 'block';
+            const frases = ["Acordar cedo", "mudou minha vida.", "Ganhei foco", "e energia.", "Recomendo a todos."];
+            let i = 0;
+
+            function proxima() {
+                if (i < frases.length) {
+                    guia.textContent = frases[i];
+                    i++;
+                    setTimeout(proxima, 3000);
+                } else {
+                    guia.textContent = 'Ótimo! Pausas perfeitas! 🎭';
+                    setTimeout(() => guia.style.display = 'none', 3000);
+                }
+            }
+            proxima();
+        }
+
+        // DESAFIO 5: Emoções
+        function iniciarEmocoes() {
+            const cron = document.getElementById('emoCron');
+            const status = document.getElementById('emoStatus');
+            cron.style.display = 'block';
+            status.style.display = 'block';
+            let seg = 90;
+            let fase = 0;
+            const fases = [' Fale com ALEGRIA!', ' Agora com GRATIDÃO...', ' Termine com ORGULHO!'];
+
+            clearInterval(intervalo);
+            intervalo = setInterval(() => {
+                seg--;
+                cron.textContent = seg;
+
+                if (seg === 60) { fase = 1; status.textContent = fases[1]; }
+                if (seg === 30) { fase = 2; status.textContent = fases[2]; }
+                if (seg <= 0) {
+                    clearInterval(intervalo);
+                    status.textContent = 'EMOÇÕES DOMINADAS! Incrível! 🌟';
+                    setTimeout(() => {
+                        cron.style.display = 'none';
+                        status.style.display = 'none';
+                    }, 3000);
+                }
+            }, 1000);
+
+            status.textContent = fases[0];
+        }
+    </script>
+</body>
+</html>
